@@ -1,0 +1,57 @@
+/Mokka/init/userInitString TIMEOUT_TO_RELAX_TMP 120
+/Mokka/init/userInitInt SLEEP_BEFORE_RETRY 5
+/Mokka/init/randomSeed 782354721
+/Mokka/init/startEventNumber START_EVENT_NUMBER_XXXX
+/Mokka/init/detectorModel DETECTOR_MODEL_XXXX 
+/Mokka/init/physicsListName PHYSICS_LIST_XXXX
+/Mokka/init/rangeCut 0.05 mm
+/Mokka/init/savingTrajectories false
+/Mokka/init/savingPrimaries false
+/Mokka/init/lcioWriteMode WRITE_NEW
+/Mokka/init/lcioStoreCalHitPosition true
+/Mokka/init/MokkaGearFileName GEAR_FILE_XXXX 
+
+/Mokka/init/EditGeometry/rmSubDetector SServices00
+
+/Mokka/init/globalModelParameter Ecal_Sc_Si_mix 000000000000000
+/Mokka/init/globalModelParameter Ecal_Sc_number_of_virtual_cells 1
+/Mokka/init/globalModelParameter Ecal_cells_size 5.0
+/Mokka/init/globalModelParameter Ecal_Sc_N_strips_across_module 36
+/Mokka/init/globalModelParameter Ecal_MPPC_size 0.91
+/Mokka/init/globalModelParameter Ecal_guard_ring_size 0.00001
+/Mokka/init/globalModelParameter Ecal_nlayers1 20
+/Mokka/init/globalModelParameter Ecal_nlayers2 9
+/Mokka/init/globalModelParameter Ecal_nlayers3 0
+/Mokka/init/globalModelParameter Ecal_radiator_layers_set1_thickness 2.1
+/Mokka/init/globalModelParameter Ecal_radiator_layers_set2_thickness 4.2
+/Mokka/init/globalModelParameter Ecal_radiator_layers_set3_thickness 0
+/Mokka/init/globalModelParameter Ecal_Si_thickness 0.5
+/Mokka/init/globalModelParameter Ecal_Sc_thickness 2.0
+/Mokka/init/globalModelParameter Ecal_Slab_Sc_PCB_thickness 0.9
+
+/Mokka/init/globalModelParameter Hcal_Ecal_gap 30.0
+/Mokka/init/globalModelParameter Hcal_endcap_ecal_gap 15.0
+
+/Mokka/init/globalModelParameter Hcal_radiator_material HCAL_ABSORBER_MATERIAL_XXXX
+/Mokka/init/globalModelParameter Hcal_endcap_radiator_material HCAL_ABSORBER_MATERIAL_XXXX
+/Mokka/init/globalModelParameter Hcal_cells_size HCAL_CELL_SIZE_XXXX
+/Mokka/init/globalModelParameter Hcal_radiator_thickness HCAL_ABSORBER_LAYER_THICKNESS_XXXX 
+/Mokka/init/globalModelParameter Hcal_endcap_radiator_thickness HCAL_ABSORBER_LAYER_THICKNESS_XXXX
+/Mokka/init/globalModelParameter Hcal_scintillator_thickness HCAL_SCINTILLATOR_LAYER_THICKNESS_XXXX
+/Mokka/init/globalModelParameter Hcal_nlayers HCAL_NUMBER_OF_LAYERS_XXXX 
+/Mokka/init/globalModelParameter Hcal_endcap_nlayers HCAL_NUMBER_OF_LAYERS_XXXX
+
+/Mokka/init/globalModelParameter Field_nominal_value BFIELD_XXXX
+/Mokka/init/globalModelParameter TPC_outer_radius TPC_OUTER_RADIUS_XXXX
+
+/Mokka/init/globalModelParameter Yoke_Z_start_endcaps 4072
+/Mokka/init/globalModelParameter Coil_Yoke_lateral_clearance 200
+/Mokka/init/globalModelParameter Coil_extra_size COIL_EXTRA_SIZE_XXXX
+
+/Mokka/init/lcioDetailedShowerMode DETAILED_SHOWER_MODE_XXXX
+/Mokka/init/BatchMode true
+/Mokka/init/lcioFilename OUTPUT_FILE_NAME_XXXX 
+/Mokka/init/initialMacroFile $workDir/$2_$3_SiW.g4macro
+
+### User Provided Geometry
+
