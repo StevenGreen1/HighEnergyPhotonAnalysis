@@ -54,7 +54,7 @@ def getMokkaSteeringFileTemplate(baseFileName,detectorConfigFile):
     mokkaSteeringTemplate = re.sub('HCAL_ABSORBER_LAYER_THICKNESS_XXXX',str(config['HCalAbsorberLayerThickness']),mokkaSteeringTemplate)
 
     # Thickenss of scintillator layers in the HCal
-    mokkaSteeringTemplate = re.sub('HCAL_SCINTILLATOR_LAYER_THICKNESS_XXXX',str(config['HCalAbsorberLayerThickness']),mokkaSteeringTemplate)
+    mokkaSteeringTemplate = re.sub('HCAL_SCINTILLATOR_LAYER_THICKNESS_XXXX',str(config['HCalScintillatorThickness']),mokkaSteeringTemplate)
 
     # Number of layers in the HCal
     mokkaSteeringTemplate = re.sub('HCAL_NUMBER_OF_LAYERS_XXXX',str(config['NumberHCalLayers']),mokkaSteeringTemplate)
