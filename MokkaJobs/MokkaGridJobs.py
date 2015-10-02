@@ -77,15 +77,13 @@ def getMokkaSteeringFileTemplate(baseFileName,detectorConfigFile):
 
 def getHEPEvtFiles(energy, eventType):
     hepevtFiles = []
-#    os.system('dirac-ilc-find-in-FC /ilc JobDescription="HEPEvt" Energy=' + str(energy) + ' EvtType="' + eventType + '" > tmp.txt')
-#    with open('tmp.txt') as f:
-#        lines = f.readlines()
-#        for idx, line in enumerate(lines):
-#            line = line.strip()
-#            hepevtFiles.append(line)
-#    os.system('rm tmp.txt')
-
-    hepevtFiles.append('/ilc/user/s/sgreen/HEPEvt/SingleParticles/Photon/10_GeV_Energy_22_pdg_SN_1.HEPEvt')
+    os.system('dirac-ilc-find-in-FC /ilc JobDescription="HEPEvt" Energy=' + str(energy) + ' EvtType="' + eventType + '" > tmp.txt')
+    with open('tmp.txt') as f:
+        lines = f.readlines()
+        for idx, line in enumerate(lines):
+            line = line.strip()
+            hepevtFiles.append(line)
+    os.system('rm tmp.txt')
     return hepevtFiles
 
 ### ----------------------------------------------------------------------------------------------------

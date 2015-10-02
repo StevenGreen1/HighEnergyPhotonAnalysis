@@ -43,8 +43,8 @@ for eventSelection in eventsToSimulate:
 
                 description = eventType + '_' + str(energy) + 'GeV'
                 outputFile = 'MokkaSim_Detector_Model_' + str(detectorModelNumber) + '_' + description + '_' + str(startEvent) + '_' + str(startEvent + eventsPerJob) + '.slcio'
-                #outputPath = '/HighEnergyPhotons/MokkaJobs/Detector_Model_' + str(detectorModelNumber) + '/' + eventType + '/' + str(energy) + 'GeV' 
-                outputPath = '/MokkaTesting' 
+                outputPath = '/HighEnergyPhotons/MokkaJobs/Detector_Model_' + str(detectorModelNumber) + '/' + eventType + '/' + str(energy) + 'GeV' 
+                #outputPath = '/MokkaTesting' 
 
                 mokkaSteeringTemplate = ''
                 mokkaSteeringTemplate = getMokkaSteeringFileTemplate(baseXmlFile,calibConfigFile)
