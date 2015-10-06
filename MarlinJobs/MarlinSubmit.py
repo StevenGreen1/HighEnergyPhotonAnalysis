@@ -12,12 +12,14 @@ from MarlinGridJobs import *
 
 #===== User Input =====
 
-#gridJobNumber = 38 # Default detector model
+jobDescription = 'HighEnergyPhotons'
+mokkaJobNumber = 38 # Default detector model
 recoStageNumber = 43 # MHHHE off and large timing cuts 
 
 eventsToSimulate = [ #{ 'EventType': "Kaon0L"  , 'Energies':  ['1','2','3','4','5','6','7','8','9','10','15','20','25','30','35','40','45','50'] }
                      #{ 'EventType': "Z_uds"   , 'Energies':  [91, 200, 360, 500, 750, 1000, 2000, 3000]                                         },
-                     { 'EventType': "Photon"  , 'Energies':  ['10','20','50','100','200','500']                                                 }
+                     #{ 'EventType': "Photon"  , 'Energies':  ['10','20','50','100','200','500']                                                 }
+                     { 'EventType': "Photon"  , 'Energies':  ['1000','1500']                                                                    }
                      #{ 'EventType': "Kaon0L"  , 'Energies':  ['1']                                                                              }
                      #{ 'EventType': "Muon"    , 'Energies':  [10]                                                                               }
                    ]
@@ -35,7 +37,8 @@ pandoraSettingsFiles['PerfectPFA'] = 'PandoraSettings/PandoraSettingsPerfectPFA.
 #===== Second level user input =====
 # If using naming scheme doesn't need changing 
 
-gearFile = '/usera/xu/ILCSOFT/myGridDownload/ILD_o1_v06_SiW_5x5.gear'
+#gearFile = '/usera/xu/ILCSOFT/myGridDownload/ILD_o1_v06_SiW_5x5.gear'
+gearFile = '/usera/sg568/ilcsoft_v01_17_07/HCalToEMCalibrationTesting/MokkaJobs/GearFiles/ILD_o1_v06_Detector_Model_' + str(mokkaJobNumber) + '.gear'
 calibConfigFile = 'CalibrationConfigFiles/Stage' + str(recoStageNumber) + 'Config_5x5_30x30.py'
 
 #=====
@@ -50,16 +53,18 @@ for key, value in pandoraSettingsFiles.iteritems():
     pandoraSettingsFilesLocal[key] = os.path.basename(value)
 
 # Start submission
-JobIdentificationString = 'HighEnergyPhotons_Default_Detector_Model_Reco_' + str(recoStageNumber)
+JobIdentificationString = jobDescription + '_Detector_Model_' + str(mokkaJobNumber) + '_Reco_' + str(recoStageNumber)
 diracInstance = DiracILC(withRepo=True,repoLocation="%s.cfg" %( JobIdentificationString))
 
 for eventSelection in eventsToSimulate:
     eventType = eventSelection['EventType']
     for energy in eventSelection['Energies']:
-        slcioFilesToProcess = getPhotonFiles(energy)
+        #slcioFilesToProcess = getPhotonFiles(energy)
+        slcioFilesToProcess = getSlcioFiles(jobDescription,38,energy,eventType)
+
         #print slcioFilesToProcess
         for slcioFile in slcioFilesToProcess:
-            print 'Submitting ' + eventType + ' ' + energy + 'GeV jobs.  Default detector model.  Reconstruction stage ' + str(recoStageNumber) + '.'  
+            print 'Submitting ' + eventType + ' ' + energy + 'GeV jobs.  Detector model ' + str(mokkaJobNumber) + '.  Reconstruction stage ' + str(recoStageNumber) + '.'  
             marlinSteeringTemplate = ''
             marlinSteeringTemplate = getMarlinSteeringFileTemplate(baseXmlFile,calibConfigFile)
             marlinSteeringTemplate = setPandoraSettingsFile(marlinSteeringTemplate,pandoraSettingsFilesLocal)
@@ -88,11 +93,11 @@ for eventSelection in eventsToSimulate:
                 outputFiles.append('MarlinReco_' + slcioFileNoPath[:-6] + '_PerfectPFA.root')
 
             job = UserJob()
-            job.setJobGroup('HighEnergyPhotons')
+            job.setJobGroup(jobDescription)
             job.setInputSandbox(pandoraSettingsFilesLocal.values()) # Local files
             job.setOutputSandbox(['*.log','*.gear','*.mac','*.steer','*.xml'])
-            job.setOutputData(outputFiles,OutputPath='/HighEnergyPhotons/MarlinJobs/Default_Detector_Model/Reco_Stage_' + str(recoStageNumber) + '/' + eventType + '/' + energy + 'GeV') # On grid
-            job.setName('HighEnergyPhotons_Default_Detector_Model_Reco_' + str(recoStageNumber))
+            job.setOutputData(outputFiles,OutputPath='/' + jobDescription + '/MarlinJobs/Detector_Model_' + str(mokkaJobNumber) + '/Reco_Stage_' + str(recoStageNumber) + '/' + eventType + '/' + energy + 'GeV') # On grid
+            job.setName(jobDescription + '_Detector_Model_' + str(mokkaJobNumber) + '_Reco_' + str(recoStageNumber))
             job.dontPromptMe()
             res = job.append(ma)
 

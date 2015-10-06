@@ -90,9 +90,9 @@ def getMarlinSteeringFileTemplate(baseFileName,calibrationFileName):
 
 ### ----------------------------------------------------------------------------------------------------
 
-def getSlcioFiles(mokkaJobNumber, energy, eventType):
+def getSlcioFiles(jobDescription, mokkaJobNumber, energy, eventType):
     slcioFiles = []
-    os.system('dirac-ilc-find-in-FC /ilc MokkaJobNumber=' + str(mokkaJobNumber) + ' Energy=' + str(energy) + ' Type="' + eventType + '" > tmp.txt')
+    os.system('dirac-ilc-find-in-FC /ilc JobDescription="' + jobDescription + '" MokkaJobNumber=' + str(mokkaJobNumber) + ' Energy=' + str(energy) + ' EvtType="' + eventType + '" > tmp.txt')
     with open('tmp.txt') as f:
         lines = f.readlines()
         for idx, line in enumerate(lines):
