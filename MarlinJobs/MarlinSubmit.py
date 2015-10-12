@@ -101,6 +101,7 @@ for eventSelection in eventsToSimulate:
             job.setOutputSandbox(['*.log','*.gear','*.mac','*.steer','*.xml'])
             job.setOutputData(outputFiles,OutputPath='/' + jobDescription + '/MarlinJobs/Detector_Model_' + str(mokkaJobNumber) + '/Reco_Stage_' + str(recoStageNumber) + '/' + eventType + '/' + energy + 'GeV') # On grid
             job.setName(jobDescription + '_Detector_Model_' + str(mokkaJobNumber) + '_Reco_' + str(recoStageNumber))
+            job.setBannedSites(['LCG.IN2P3-CC.fr','LCG.IN2P3-IRES.fr','LCG.KEK.jp'])
             job.dontPromptMe()
             res = job.append(ma)
 
