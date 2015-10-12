@@ -12,7 +12,7 @@ std::string IntToString(int a);
 
 //===========================================
 
-void analysis(int energy)
+void analysis(int energy, int recStage)
 {
     gROOT->SetBatch();
     gStyle->SetPadTopMargin(0.15);
@@ -20,7 +20,7 @@ void analysis(int energy)
     gStyle->SetPadRightMargin(0.15);
     gStyle->SetPadLeftMargin(0.15);
 
-    std::string inputPhotonRootFiles = "/r06/lc/sg568/HighEnergyPhotons/DefaultDetectorModel/RecoStage43/" + IntToString(energy) + "GeV/*";
+    std::string inputPhotonRootFiles = "/r06/lc/sg568/HighEnergyPhotons/Detector_Model_38/Reco_Stage_" + IntToString(recStage) + "/" + IntToString(energy) + "GeV/*";
     TChain *pTChain = new TChain("PfoAnalysisTree");
 
     float pfoECalToEmEnergy(0.f), pfoHCalToEmEnergy(0.f);
@@ -49,8 +49,8 @@ void analysis(int energy)
         }
     }
 
-    std::string plotName = "HighEnergyPhotons_" + IntToString(energy) + "GeV_EnergySplit.png";
-    std::string plotName2 = "HighEnergyPhotons_" + IntToString(energy) + "GeV_EnergySplit.C";
+    std::string plotName = "HighEnergyPhotons_" + IntToString(energy) + "GeV_Reco_Stage_" + IntToString(recStage) + "_EnergySplit.png";
+    std::string plotName2 = "HighEnergyPhotons_" + IntToString(energy) + "GeV_Reco_Stage_" + IntToString(recStage) + "_EnergySplit.C";
 
     TLegend *pTLegend = new TLegend(0.3,0.65,0.7,0.8);
     std::string legendLabel = IntToString(energy) + "GeV Photons";

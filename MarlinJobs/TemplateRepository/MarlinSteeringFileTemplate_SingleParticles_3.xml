@@ -716,7 +716,7 @@
   <!--Calibration coefficients for ECAL-->
 <parameter name="CalibrECAL" type="FloatVec">CALIBR_ECAL_XXXX</parameter>
   <!--Calibration coefficients for HCAL-->
-  <parameter name="CalibrHCAL" type="FloatVec">CALIBRHCAL_XXXX</parameter> 
+  <parameter name="CalibrHCAL" type="FloatVec">CALIBR_HCAL_XXXX</parameter> 
   <!--ECAL Collection Names-->
   <parameter name="ECALCollections" type="StringVec">EcalBarrelSiliconCollection EcalEndcapSiliconCollection  EcalEndcapRingCollection </parameter>
   <!--Index of ECal Layers-->

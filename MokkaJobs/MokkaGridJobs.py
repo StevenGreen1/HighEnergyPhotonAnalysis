@@ -75,7 +75,7 @@ def getMokkaSteeringFileTemplate(baseFileName,detectorConfigFile):
 
 ### ----------------------------------------------------------------------------------------------------
 
-def getHEPEvtFiles(energy, eventType):
+def getHEPEvtFiles(eventType, energy):
     hepevtFiles = []
     os.system('dirac-ilc-find-in-FC /ilc JobDescription="HEPEvt" Energy=' + str(energy) + ' EvtType="' + eventType + '" > tmp.txt')
     with open('tmp.txt') as f:

@@ -14,7 +14,10 @@ from MarlinGridJobs import *
 
 jobDescription = 'HighEnergyPhotons'
 mokkaJobNumber = 38 # Default detector model
-recoStageNumber = 43 # MHHHE off and large timing cuts 
+#recoStageNumber = 43 # MHHHE off and large timing cuts -> Template 1
+#recoStageNumber = 35 # Original digitsation (truncation in ECal on), MHHHE off and large timing cuts -> Template 4
+#recoStageNumber = 3 # Old digitiser, MHHHE off and no large timing cuts -> Template 3
+recoStageNumber = 68 # Original digitsation (no truncation), MHHHE off and large timing cuts -> Template 2
 
 eventsToSimulate = [ #{ 'EventType': "Kaon0L"  , 'Energies':  ['1','2','3','4','5','6','7','8','9','10','15','20','25','30','35','40','45','50'] }
                      #{ 'EventType': "Z_uds"   , 'Energies':  [91, 200, 360, 500, 750, 1000, 2000, 3000]                                         },
@@ -24,7 +27,7 @@ eventsToSimulate = [ #{ 'EventType': "Kaon0L"  , 'Energies':  ['1','2','3','4','
                      #{ 'EventType': "Muon"    , 'Energies':  [10]                                                                               }
                    ]
 
-baseXmlFile = 'TemplateRepository/MarlinSteeringFileTemplate_SingleParticles_1.xml'
+baseXmlFile = 'TemplateRepository/MarlinSteeringFileTemplate_SingleParticles_2.xml'
 
 pandoraSettingsFiles = {}
 pandoraSettingsFiles['Default'] = 'PandoraSettings/PandoraSettingsDefault_SiW_5x5.xml' 

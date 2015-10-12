@@ -36,13 +36,15 @@ for eventSelection in eventsToSimulate:
     eventsPerFile = eventSelection['EventsPerFile']
     for energy in eventSelection['Energies']:
         hepevtFilesToProcess = getHEPEvtFiles(eventType,energy)
+        jobNumber = 0
         #print hepevtFilesToProcess
         for hepevtFile in hepevtFilesToProcess:
             for startEvent in xrange(0, eventsPerFile, eventsPerJob):
                 print 'Submitting ' + eventType + ' ' + energy + 'GeV jobs.  Detector model ' + str(detectorModelNumber) + '.  Start event number ' + str(startEvent) + '.'  
 
+                jobNumber += eventsPerJob
                 description = eventType + '_' + str(energy) + 'GeV'
-                outputFile = 'MokkaSim_Detector_Model_' + str(detectorModelNumber) + '_' + description + '_' + str(startEvent) + '_' + str(startEvent + eventsPerJob) + '.slcio'
+                outputFile = 'MokkaSim_Detector_Model_' + str(detectorModelNumber) + '_' + description + '_' + str(eventsPerJob) + '_' + str(jobNumber) + '.slcio'
                 outputPath = '/HighEnergyPhotons/MokkaJobs/Detector_Model_' + str(detectorModelNumber) + '/' + eventType + '/' + str(energy) + 'GeV' 
                 #outputPath = '/MokkaTesting' 
 

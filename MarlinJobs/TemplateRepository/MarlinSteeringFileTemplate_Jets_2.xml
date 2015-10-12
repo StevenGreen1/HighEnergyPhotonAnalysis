@@ -715,6 +715,8 @@
 
 <processor name="MyILDCaloDigi" type="ILDCaloDigi">
   <!--ILD digitizer...-->
+  <!--No electronic energy truncation for the ECal-->
+  <parameter name="ECAL_maxDynamicRange_MIP" type="float">0.0</parameter>
   <!--No electronic energy truncation for the HCal-->
   <parameter name="HCAL_maxDynamicRange_MIP" type="float">0.0</parameter>
   <!--Calibration coefficients for ECAL-->
